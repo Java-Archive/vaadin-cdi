@@ -1,6 +1,9 @@
 package org.rapidpm.vaadin.addon.cdi;
 
 
+import org.rapidpm.dependencies.core.logger.HasLogger;
+import org.rapidpm.dependencies.core.logger.Logger;
+
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.*;
 import javax.naming.InitialContext;
@@ -8,12 +11,9 @@ import javax.naming.NamingException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
-public class BeanManagerProvider implements Extension {
-  private static final Logger LOG = Logger.getLogger(BeanManagerProvider.class.getName());
+public class BeanManagerProvider implements Extension, HasLogger {
 
   //for CDI 1.1+ delegation
   private static final Method CDI_CURRENT_METHOD;
@@ -34,7 +34,7 @@ public class BeanManagerProvider implements Extension {
         resolvedCdiCurrentMethod = cdiClass.getDeclaredMethod("current");
         resolvedCdiBeanManagerMethod = cdiClass.getDeclaredMethod("getBeanManager");
       } catch (Exception e) {
-        LOG.log(Level.SEVERE, "Couldn't get method from " + cdiClass.getName(), e);
+        Logger.getLogger(BeanManagerProvider.class).warning("Couldn't get method from" + cdiClass.getName(), e);
       }
     }
 
@@ -121,6 +121,9 @@ public class BeanManagerProvider implements Extension {
    * @param beanManager        the BeanManager we store and make available.
    */
   public void setBeanManager(@Observes AfterBeanDiscovery afterBeanDiscovery, BeanManager beanManager) {
+
+    logger().info("setting the BeanManager " + beanManager);
+
     setBeanManagerProvider(this);
 
     BeanManagerInfo bmi = getBeanManagerInfo(ClassUtils.getClassLoader(null));
@@ -242,7 +245,7 @@ public class BeanManagerProvider implements Extension {
         Object cdiCurrentObject = CDI_CURRENT_METHOD.invoke(null);
         return (BeanManager) CDI_CURRENT_BEAN_MANAGER_METHOD.invoke(cdiCurrentObject);
       } catch (Throwable t) {
-        LOG.log(Level.FINEST, "failed to delegate bean-manager lookup -> fallback to default.", t);
+        logger().finest("failed to delegate bean-manager lookup -> fallback to default.", t);
       }
     }
     return null;

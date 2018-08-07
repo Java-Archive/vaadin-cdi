@@ -1,18 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <modules>
-    <module>modules</module>
-  </modules>
-  <properties>
-    <meecrowave.version>1.2.3</meecrowave.version>
-    <testbench-ng.version>0.3.0-SNAPSHOT</testbench-ng.version>
-  </properties>
+
 
   <parent>
     <groupId>org.rapidpm</groupId>
     <artifactId>rapidpm-dependencies</artifactId>
-    <version>4.0.2</version>
+    <version>4.0.4</version>
   </parent>
 
   <groupId>org.rapidpm.vaadin</groupId>
@@ -33,12 +27,22 @@
     </repository>
   </repositories>
 
+  <properties>
+    <meecrowave.version>1.2.3</meecrowave.version>
+    <testbench-ng.version>0.3.0-SNAPSHOT</testbench-ng.version>
+    <vaadin.version>10.0.2</vaadin.version>
+  </properties>
+
+  <modules>
+    <module>modules</module>
+  </modules>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-bom</artifactId>
-        <version>10.0.2</version>
+        <version>${vaadin.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -56,12 +60,6 @@
   <dependencies>
 
     <!--API / provided-->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
-    </dependency>
-
     <dependency>
       <groupId>org.apache.meecrowave</groupId>
       <artifactId>meecrowave-specs-api</artifactId>
@@ -96,7 +94,6 @@
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
-
 
   </dependencies>
 
