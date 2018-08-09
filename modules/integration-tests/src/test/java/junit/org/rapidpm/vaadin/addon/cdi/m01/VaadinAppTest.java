@@ -27,7 +27,6 @@ public class VaadinAppTest {
 
   @Test
   @DisplayName("Hello World - Click twice")
-  //@Disabled("classloader challenges with Atmosphere")
   void test001(VaadinAppPageObject pageObject) {
     pageObject.loadPage();
     assertEquals(0, pageObject.clickCount());
