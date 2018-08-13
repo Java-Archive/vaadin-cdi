@@ -1,2 +1,2 @@
-# vaadin-cdi
-A Vaadin CDI extension
+# RapidPM - Vaadin CDI AddOn
+
