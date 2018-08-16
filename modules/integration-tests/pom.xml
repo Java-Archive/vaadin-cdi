@@ -20,18 +20,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>cdi-addon-modules</artifactId>
     <groupId>org.rapidpm.vaadin</groupId>
-    <version>0.1.0</version>
+    <artifactId>rapidpm-vaadin-cdi-m</artifactId>
+    <version>00.07.04-RPM</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>cdi-addon-modules-integration-tests</artifactId>
+  <artifactId>rapidpm-vaadin-cdi-m-integration-tests</artifactId>
 
 
   <dependencies>
-
-
     <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
     <dependency>
       <groupId>javax.el</groupId>
@@ -39,12 +37,9 @@
       <version>3.0.1-b06</version>
     </dependency>
 
-
-
-
     <dependency>
       <groupId>org.rapidpm.vaadin</groupId>
-      <artifactId>cdi-addon-modules-impl</artifactId>
+      <artifactId>rapidpm-vaadin-cdi-m-impl</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
 
@@ -93,12 +88,6 @@
       <version>${testbench-ng.version}</version>
       <scope>test</scope>
     </dependency>
-    <!--<dependency>-->
-    <!--<groupId>org.rapidpm</groupId>-->
-    <!--<artifactId>testbench-ng-m-pageobject-vaadin-generic</artifactId>-->
-    <!--<version>${testbench-ng.version}</version>-->
-    <!--<scope>test</scope>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.rapidpm</groupId>
       <artifactId>testbench-ng-m-pageobject-vaadin-v10-tb</artifactId>

@@ -23,15 +23,15 @@
   <parent>
     <groupId>org.rapidpm</groupId>
     <artifactId>rapidpm-dependencies</artifactId>
-    <version>4.0.4</version>
+    <version>04.00.05-RPM</version>
   </parent>
 
   <groupId>org.rapidpm.vaadin</groupId>
-  <artifactId>cdi-addon</artifactId>
+  <artifactId>rapidpm-vaadin-cdi</artifactId>
   <packaging>pom</packaging>
-  <version>0.1.0</version>
+  <version>00.07.04-RPM</version>
 
-  <name>Vaadin CDI Add On</name>
+  <name>RapidPM Vaadin CDI Add On</name>
   <url>https://github.com/vaadin-developer/vaadin-cdi</url>
   <description>Provides CDI integration for Vaadin projects</description>
 
@@ -46,7 +46,7 @@
 
   <properties>
     <meecrowave.version>1.2.3</meecrowave.version>
-    <testbench-ng.version>0.3.0</testbench-ng.version>
+    <testbench-ng.version>00.07.04-RPM</testbench-ng.version>
     <vaadin.version>10.0.2</vaadin.version>
   </properties>
 
