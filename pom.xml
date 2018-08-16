@@ -27,7 +27,7 @@
   </parent>
 
   <groupId>org.rapidpm.vaadin</groupId>
-  <artifactId>rapidpm-vaadin-cdi-addon</artifactId>
+  <artifactId>rapidpm-vaadin-cdi</artifactId>
   <packaging>pom</packaging>
   <version>00.07.04-RPM</version>
 
